@@ -11,12 +11,19 @@ public interface Game {
 
 	Responder responder =  null;
 
-	List<Asset> playerAssets = new ArrayList<Asset>();;
+	List<Asset> playerAssets = new ArrayList<Asset>();
+
+	List<Room> rooms = null;
 
 	Room currentRoom = null;
 
 	void provideIntroInstructions();
 	void provideMovementInstructions();
 	void provideActionSampleInstructions();
+
+	byte playUserMove();
+
+	default void addAssetToInventory(Asset asset){ playerAssets.add(asset); }
+
 
 }

@@ -5,8 +5,9 @@ import org.finalproject.output.Responder;
 public class ConsumeableStandard implements ConsumeBehavior {
 
     @Override
-    public void consume() {
-
+    public boolean consume() {
+        System.out.println("!!!!!!!!!!!!!!!!!!! NEEDS TO BE IMPLEMENTED");
+        return false;
     }
     @Override
     public String toString() {

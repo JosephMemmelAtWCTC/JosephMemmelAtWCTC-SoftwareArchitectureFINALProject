@@ -7,9 +7,16 @@ import java.util.List;
 
 public interface Room {
 
-	List<Asset> assets = new ArrayList<Asset>();
+	List<Asset> roomAssets = new ArrayList<Asset>();
 
-	public List<Asset> getAssets();
+	List<Asset> getAssets();
 
+	void populateRoom();
+
+	void searchRoom();
+
+	void setExit(Exit exit);
+
+	Exit[] getExits();
 
 }

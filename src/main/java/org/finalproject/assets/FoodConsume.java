@@ -6,13 +6,25 @@ public class FoodConsume implements ConsumeBehavior{
 
     Responder responder = null;
 
+    static String[] eatingResponses = new String[]{
+        "Crunch crunch gulp",
+        "Chew munch chew gulp",
+        "Crunch gulp smack smack"
+    };
+
+    static private String getGetRandomEatingMessage(){
+        return eatingResponses[(int) Math.round(Math.random()*(eatingResponses.length-1))];
+    }
+
+
     public FoodConsume(Responder responder) {
         this.setResponder(responder);
     }
 
     @Override
-    public void consume(){
-        this.responder.actionRespond("yummy");
+    public boolean consume(){
+        this.responder.actionRespond("\""+this.getGetRandomEatingMessage()+"\"");
+        return true;
     }
 
 

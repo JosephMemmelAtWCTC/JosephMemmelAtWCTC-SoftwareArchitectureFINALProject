@@ -35,13 +35,18 @@ public abstract class Asset {
         this.setResponder(responder);
     }
 
+//SETTERS
     private void setResponder(Responder responder) { this.responder = responder; }//Has own responder in case of separate display location such as a sidebar
 
     public void setDescription(String description){ this.description = description; }
     public void setName(String name){ this.name = name; }
 
     public void performPickup(){ pickupBehavior.pickup(); }
-    public void performConsumption(){ consumeBehavior.consume(); }
+    public void performConsumption(){
+        if(consumeBehavior.consume()){
+            this.decrementStack();
+        }
+    }
 
     public void setPickupBehavior(PickupBehavior pb){ this.pickupBehavior = pb; }
     public void setConsumeBehavior(ConsumeBehavior cb){ this.consumeBehavior = cb; }
@@ -53,5 +58,5 @@ public abstract class Asset {
 
     public int getQuantity() { return quantity;}
 
-    // OTHER DUCK-LIKE METHODS
+    public void decrementStack(){ this.quantity--; }
 }
